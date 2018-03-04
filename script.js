@@ -1,5 +1,6 @@
 var url = 'https://restcountries.eu/rest/v2/name/';
 $('#search').click(searchCountries);
+var searches = [];
 
 function searchCountries() {
     var countryName = $('#country-name').val();
@@ -33,9 +34,22 @@ function buildRow(header) {
     return $row
 }
 
+function buildContainer(integer) {
+    var $container = $('<div></div>').attr('id', integer.toString());
+    var $h2 = $('<h2></h2>').attr('id', 'country');
+    var $info = $('<div></div>').addClass('back').text('Background Information:');
+    $container.append($h2)
+              .append($info)
+              .append(buildTable().insertAfter(".back"));
+    return $container
+}
+
 function buildOutput(resp) {
-    buildTable().insertAfter(".back");
+    var result = buildContainer(searches.length);
+
     showCountriesList(resp);
+    searches.push(result);
+
 }
 
 function showCountriesList(resp) {
