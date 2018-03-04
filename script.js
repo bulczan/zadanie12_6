@@ -1,5 +1,4 @@
 var url = 'https://restcountries.eu/rest/v2/name/';
-
 $('#search').click(searchCountries);
 
 function searchCountries() {
@@ -8,8 +7,35 @@ if (!countryName.length) countryName = 'Poland';
 $.ajax({
         url: url + countryName,
         method: 'GET',
-        success: showCountriesList
+        success: buildOutput
     });
+}
+
+function buildTable() {
+    var headers = ['Capital', 'Population', 'Land', 'Language', 'Currency'];
+    var items = [];
+    var $table = $('<table></table>');
+    for (var i=0; i < headers.length; i++) {
+        items.push(buildRow(headers[i]));
+    }
+    $table.append(items);
+    return $table
+}
+
+function buildRow(header) {
+    var $row = $('<tr></tr>');
+    var $theader = $('<th></th>');
+    var $tdata = $('<td></td>');
+    $theader.html(header);
+    $tdata.attr('id', header.toLowerCase());
+    $row.append($theader)
+        .append($tdata);
+    return $row
+}
+
+function buildOutput(resp) {
+    buildTable().insertAfter(".back");
+    showCountriesList(resp);
 }
 
 function showCountriesList(resp) {
@@ -23,6 +49,7 @@ function showCountriesList(resp) {
         currency.html(listToString(item['currencies']));
         languages.html(listToString(item['languages']));
     });
+
     function listToString(item){
         var output = [];
         for(var i = 0; i < item.length; i++ ){
