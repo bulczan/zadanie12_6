@@ -124,6 +124,19 @@ function showCountriesList(resp) {
         currency.html(' : ' + listToString(item['currencies']));
         languages.html(' : ' + listToString(item['languages']));
     });
+    
+    /* Other option */
+    
+    /*
+        function listToString(items, items2){
+            return items.map(function(item) {
+                return item.name;
+            });
+        }
+        
+        ES6
+        private listToString = String(items => items.map(item => item.name));
+    */
 
     function listToString(item){
         var output = [];
