@@ -1,0 +1,117 @@
+* {
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: 'Saira Condensed', sans-serif;
+}
+
+body {
+    background: aliceblue;
+}
+
+nav h1 {
+    margin: 30px;
+    text-align: center;
+}
+
+/* SEARCH BAR */
+.search-box {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 5px 40%;
+}
+
+.search-box #search {
+    border-radius: 5px;
+    background-color: transparent;
+    outline: none;
+
+}
+
+.search-box #country-name, .search-box #search {
+    border: 1px solid #84c4fe;
+}
+
+
+.search-box #country-name:focus {
+    border-color: #84c4fe;
+}
+.search-box #search:hover {
+    background: linear-gradient(270deg, #84c4fe, #ffffff);
+    background-size: 400% 400%;
+    -webkit-animation: ButtonHover 2s ease infinite;
+    -moz-animation: ButtonHover 2s ease infinite;
+    animation: ButtonHover 2s ease infinite;
+}
+@-webkit-keyframes ButtonHover {
+    0%{background-position:0 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0 50%}
+}
+@-moz-keyframes ButtonHover {
+    0%{background-position:0 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0 50%}
+}
+@keyframes ButtonHover {
+    0%{background-position:0 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0 50%}
+}
+
+/* GENERATED OUTPUT */
+
+/* Country */
+#country {
+    margin: 10px 0;
+}
+#flag {
+    padding: 5px;
+    height: 50px;
+    width: 70px;
+    float: left;
+}
+
+#name {
+    position: relative;
+    top: 10px;
+    left: 15px;
+
+}
+
+#info {
+}
+
+/* Table Container */
+#info, #table-footer {
+    background-color: #928EFE;
+    width: 100%;
+    height: 20px;
+}
+#table-footer {
+    content: "";
+}
+
+/* Tables */
+
+table {
+    border: 0 none;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+tr td {
+    background-color: #B4DCFF;
+    border: 1px solid white;
+    font-weight: 300;
+}
+
+tr th {
+    border: 1px solid white;
+    padding: 0;
+    text-align: left;
+    background-color: #84C4FE;
+    font-weight: 700;
+
+}
+
